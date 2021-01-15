@@ -59,6 +59,7 @@ img{max-width: 100%;height: auto;}
   margin-top: 1.5em;
 }
 .count {
+  color: var(--red);
   font-size: 4rem;
   font-weight: 700;
 }
@@ -77,9 +78,10 @@ img{max-width: 100%;height: auto;}
   max-width: 75px;
 }
 .people-grid li .headshot {
-  border-radius: 35px;
-  width: 100%;
-  max-width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  width: 60px;
+  height: 60px;
   margin: 0 auto;
 }
 .people-grid li .headshot img {
