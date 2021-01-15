@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="graphic">
+      <h1>How GOP Senators will vote in a impeachment trial</h1>
+      <p>Conviction and removal of Trump would require a two-thirds vote in the Senate, meaning 17 of 50 GOP sanators needs to vote to convict.</p>
+      <div class="known">
+        <div id="impeach">
+          <h4>Voting to convict</h4>
+          <h2 id="yaycount"></h2>
+          <ul id="yaylist" class="people-grid">
+
+          </ul>
+        </div>
+        <div id="acquit">
+          <h4>Voting to acquit</h4>
+          <h2 id="naycount"></h2>
+          <ul id="naylist" class="people-grid">
+
+          </ul>
+        </div>
+      </div>
+      <div id="unknown">
+        <h4>Not known or undecided</h4>
+        <h2 id="unknowncount"></h2>
+        <ul id="unknownlist" class="people-grid">
+
+        </ul>
+      </div>
+
+      
+      <div class="credit">DAIGO FUJIWARA/GLOBE STAFF</div>
+    </div>
+  </body>
+  <script id="senator-template" type="text/x-handlebars-template">
+    {{#each people}}
+      <li class="senator" data-name="{{name}}" data-text="{{text}}" data-updated="{{date}}">
+        <img src="{{imgurl}}" class="headshot">
+        <h5 class="lastname">{{last}}</h5>
+        <div class="state">{{state}}</div>
+      </li>
+    {{/each}}
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.6/dist/handlebars.min.js"></script>
+  <script src="//pym.nprapps.org/pym.v1.min.js"></script>
+  <script src="app.js"></script>
+  <script>
+    var pymChild = new pym.Child({ polling: 1000 });
+  </script>
+</html>

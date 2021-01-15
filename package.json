@@ -1,0 +1,24 @@
+{
+  "name": "nr-graphics-senate-impeachment",
+  "version": "1.0.0",
+  "description": "A tracker of which GOP senators support the impeachment, January 2020.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BostonGlobe/nr-graphics-senate-impeachment.git"
+  },
+  "author": "@DaigoFuji",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/BostonGlobe/nr-graphics-senate-impeachment/issues"
+  },
+  "homepage": "https://github.com/BostonGlobe/nr-graphics-senate-impeachment#readme",
+  "devDependencies": {
+    "axios": "^0.21.1",
+    "fs": "0.0.1-security",
+    "gulp": "^4.0.2"
+  }
+}
