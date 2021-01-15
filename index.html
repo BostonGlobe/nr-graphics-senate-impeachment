@@ -8,26 +8,42 @@
   <body>
     <div class="graphic">
       <h1>How GOP Senators will vote in a impeachment trial</h1>
-      <p>Conviction and removal of Trump would require a two-thirds vote in the Senate, meaning 17 of 50 GOP sanators needs to vote to convict.</p>
+      <p class="intro">Conviction and removal of president Trump would require a two-thirds vote in the Senate. Assuming all 50 Democrats and Independents vote to convict, 17 of 50 GOP sanators are needed for conviction.</p>
       <div class="known">
+
         <div id="impeach">
-          <h4>Voting to convict</h4>
-          <h2 id="yaycount"></h2>
-          <ul id="yaylist" class="people-grid">
+          <h4>Convict</h4>
+          <h2 id="yeacount" class="count"></h2>
+          <ul id="yealist" class="people-grid">
+
+          </ul>
+        </div>
+
+        <div id="watch">
+          <h4>Senators to watch</h4>
+          <h2 id="leanyeacount" class="count"></h2>
+          <ul id="leanyealist" class="people-grid">
+
+          </ul>
+        </div>
+        <div id="likelyacquit">
+          <h4>Likely acquit</h4>
+          <h2 id="leannaycount" class="count"></h2>
+          <ul id="leannaylist" class="people-grid">
 
           </ul>
         </div>
         <div id="acquit">
-          <h4>Voting to acquit</h4>
-          <h2 id="naycount"></h2>
+          <h4>Acquit</h4>
+          <h2 id="naycount" class="count"></h2>
           <ul id="naylist" class="people-grid">
 
           </ul>
         </div>
       </div>
-      <div id="unknown">
+      <div id="unknown" class="unknown">
         <h4>Not known or undecided</h4>
-        <h2 id="unknowncount"></h2>
+        <h2 id="unknowncount" class="count"></h2>
         <ul id="unknownlist" class="people-grid">
 
         </ul>
@@ -40,7 +56,9 @@
   <script id="senator-template" type="text/x-handlebars-template">
     {{#each people}}
       <li class="senator" data-name="{{name}}" data-text="{{text}}" data-updated="{{date}}">
-        <img src="{{imgurl}}" class="headshot">
+        <figure class="headshot">
+          <img src="{{imgurl}}" alt="{{name}}">
+        </figure>
         <h5 class="lastname">{{last}}</h5>
         <div class="state">{{state}}</div>
       </li>

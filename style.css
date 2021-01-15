@@ -3,17 +3,9 @@
   --muted: #adadad;
   --link: #005dc7;
 }
-
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
-
 @font-face {
   font-family: 'BentonSansCond';
   src: url("https://apps.bostonglobe.com/common/font/bentonsanscond-regular.woff2") format('woff2'), url("https://apps.bostonglobe.com/common/font/bentonsanscond-regular.woff") format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-.font_primary {
-  font-family: 'BentonSansCond', Arial Narrow, Helvetica, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -23,6 +15,13 @@
   font-weight: 700;
   font-style: normal;
 }
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}main{display:block}h1{font-size:2em;margin:.67em 0}hr{box-sizing:content-box;height:0;overflow:visible}pre{font-family:monospace,monospace;font-size:1em}a{background-color:transparent}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}code,kbd,samp{font-family:monospace,monospace;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}button,input,optgroup,select,textarea{font-family:inherit;font-size:100%;line-height:1.15;margin:0}button,input{overflow:visible}button,select{text-transform:none}[type=button],[type=reset],[type=submit],button{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{padding:.35em .75em .625em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{vertical-align:baseline}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}details{display:block}summary{display:list-item}template{display:none}[hidden]{display:none}
+img{max-width: 100%;height: auto;}
+.font_primary {
+  font-family: 'BentonSansCond', Arial Narrow, Helvetica, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 .font_primary.bold {
   font-family: 'BentonSansCond', Arial Narrow, Helvetica, sans-serif;
   font-weight: 700;
@@ -30,17 +29,38 @@
 }
 .graphic {
   position: relative;
+  padding: 0 1em;
   font-family: 'BentonSansCond', Arial Narrow, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
 }
 .graphic h1,.graphic h2,.graphic h3,.graphic h4,.graphic h5,.graphic h6{
   text-align: center;
   margin: 0;
 }
+.intro {
+  text-align: center;
+}
 .known {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
+}
+.known #impeach,
+.known #watch,
+.known #likelyacquit,
+.known #acquit {
+  border: 1px solid #e7e7e7;
+  background: white;
+  padding: 15px;
+  box-shadow: 2px 2px 5px 0px rgba(173,173,173,.3);
+
+}
+.unknown {
+  margin-top: 1.5em;
+}
+.count {
+  font-size: 4rem;
+  font-weight: 700;
 }
 .people-grid {
   display: flex;
@@ -54,16 +74,25 @@
 .people-grid li {
   margin: 0;
   padding: 0;
-  
+  max-width: 75px;
 }
-.people-grid li img {
-   
+.people-grid li .headshot {
+  border-radius: 35px;
+  width: 100%;
+  max-width: 70px;
+  margin: 0 auto;
+}
+.people-grid li .headshot img {
+  width: 100%;
 }
 .people-grid li h5 {
   text-align: center;
+  font-size: 14px;
+
 }
 .people-grid li .state {
   text-align: center;
+  font-size: 12px;
 }
 a {
   color: var(--link);
@@ -79,12 +108,8 @@ a:visited, a:hover {
 }
 
 @media (min-width: 600px) {
-  #s {
-    height: 480px;
-  }
-}
-@media (min-width: 1400px) {
-  #map {
-    height: 650px;
+  .known {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
   }
 }
