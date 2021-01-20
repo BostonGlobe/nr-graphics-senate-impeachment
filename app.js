@@ -11,10 +11,11 @@ fetch('data.json').then(function (response) {
   for (let i = 0; i < gops.length; i += 1) {
     let obj = {
       "name": gops[i][1],
+      "status": gops[i][5],
       "state": gops[i][0],
       "last": gops[i][3],
       "linkurl": gops[i][8],
-      "imgurl": (gops[i][9] ? gops[i][9] : 'https://via.placeholder.com/150'),
+      "imgurl": (gops[i][9] ? `images/${gops[i][9]}` : 'https://via.placeholder.com/150'),
       "text": gops[i][6],
       "date": gops[i][7]
     }
@@ -65,6 +66,75 @@ fetch('data.json').then(function (response) {
   buildlist(senators['leannay'], '#leannaylist');
   buildlist(senators['nay'], '#naylist');
   buildlist(senators['unknown'], '#unknownlist');
+
+  var getOffsetTop = function (elem) {
+    var location = 0;
+    if (elem.offsetParent) {
+      while (elem) {
+        location += elem.offsetTop;
+        elem = elem.offsetParent;
+      }
+    }
+    return location >= 0 ? location : 0;
+  };
+
+  // add a event handler for click
+  const ibox = document.querySelector('#infobox');
+  const headshots = document.querySelectorAll('.senator');
+  function showInfobox(el) {
+    ibox.querySelector('.info-name').textContent = el.getAttribute('data-name');
+    ibox.querySelector('.info-text').textContent = el.getAttribute('data-text');
+    ibox.querySelector('.info-status').textContent = el.getAttribute('data-status');
+    ibox.querySelector('.info-state').textContent = el.getAttribute('data-state');
+    if (el.getAttribute('data-updated')) {
+      ibox.querySelector('.info-date').textContent = `Updated: ${el.getAttribute('data-updated')}`;
+    } else {
+      ibox.querySelector('.info-date').textContent = ''
+    }
+
+    if (el.getAttribute('data-link')) {
+      while(ibox.querySelector('.info-link').firstChild) {
+        ibox.querySelector('.info-link').removeChild(ibox.querySelector('.info-link').firstChild)
+      }
+      const lnk = document.createElement('a');
+      lnk.setAttribute('href', el.getAttribute('data-link'));
+      lnk.setAttribute('target', '_new');
+      lnk.textContent = 'Read more';
+      ibox.querySelector('.info-link').append(lnk)
+    } else {
+      while(ibox.querySelector('.info-link').firstChild) {
+        ibox.querySelector('.info-link').removeChild(ibox.querySelector('.info-link').firstChild)
+      }
+    }
+    ibox.style.opacity = 1;
+    let iboxtop = getOffsetTop(el) + 60;
+    // if iboxtop plus height of ibox is larger than height of page, flip
+    if (iboxtop + ibox.offsetHeight > document.querySelector('.graphic').offsetHeight) {
+      iboxtop = getOffsetTop(el) - ibox.offsetHeight - 5;
+    }
+    ibox.style.top = `${iboxtop}px`;
+    let iboxleft = el.offsetLeft - 65;
+    if (iboxleft < 0) {
+      iboxleft = 0;
+    }
+    if ( iboxleft + 210  > window.innerWidth ) {
+      iboxleft = window.innerWidth - 210;
+    }
+    ibox.style.left = `${iboxleft}px`;
+
+    pymChild.sendHeight();
+  }
+
+  for (let i = 0; i < headshots.length; i += 1) {
+    headshots[i].addEventListener('click', function (ev) {
+      showInfobox(ev.target.closest('.senator'));
+    });
+  }
+
+  // close infobox 
+  ibox.querySelector('#close').addEventListener('click', function (ev) {
+    ibox.style.opacity = 0;
+  });
 
   pymChild.sendHeight();
   

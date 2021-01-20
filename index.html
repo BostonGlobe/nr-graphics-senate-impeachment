@@ -7,8 +7,7 @@
   </head>
   <body>
     <div class="graphic">
-      <h1>How GOP Senators will vote in a impeachment trial</h1>
-      <p class="intro">Conviction and removal of president Trump would require a two-thirds vote in the Senate. Assuming all 50 Democrats and Independents vote to convict, 17 of 50 GOP sanators are needed for conviction.</p>
+      <p class="intro">Conviction and removal of president Trump would require a two-thirds vote in the Senate. Assuming all 50 Democrats and Independents vote to convict, 17 of 50 GOP sanators are needed for conviction. Tap on senators to see our analysis.</p>
       <div class="known">
 
         <div id="impeach">
@@ -42,20 +41,25 @@
         </div>
       </div>
       <div id="unknown" class="unknown">
-        <h4>Not known or undecided</h4>
+        <h4>Not known</h4>
         <h2 id="unknowncount" class="count"></h2>
         <ul id="unknownlist" class="people-grid">
 
         </ul>
       </div>
-
-      
+      <div id="infobox">
+        <a class="close" id="close">&times;</a>
+        <h3>Senator <span class="info-name">.</span> of <span class="info-state">.</span></h3>
+        <h5 class="info-status">.</h5>
+        <p class="info-body"><span class="info-text">.</span></p>
+        <div class="info-meta"><span class="info-link">.</span><span class="info-date">.</span></div>
+      </div>
       <div class="credit">JAMES PINDELL, DAIGO FUJIWARA/GLOBE STAFF</div>
     </div>
   </body>
   <script id="senator-template" type="text/x-handlebars-template">
     {{#each people}}
-      <li class="senator" data-name="{{name}}" data-text="{{text}}" data-updated="{{date}}">
+      <li class="senator" data-name="{{name}}" data-text="{{text}}" data-updated="{{date}}" data-state="{{state}}" data-link="{{linkurl}}" data-status="{{status}}">
         <figure class="headshot">
           <img src="{{imgurl}}" alt="{{name}}">
         </figure>
