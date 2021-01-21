@@ -17,7 +17,8 @@ fetch('data.json').then(function (response) {
       "linkurl": gops[i][8],
       "imgurl": (gops[i][9] ? `images/${gops[i][9]}` : 'https://via.placeholder.com/150'),
       "text": gops[i][6],
-      "date": gops[i][7]
+      "date": gops[i][7],
+      "termup": gops[i][13]
     }
     // Convict,Senators to watch,Unknown,Likely acquit,Acquit
 
@@ -80,12 +81,15 @@ fetch('data.json').then(function (response) {
 
   // add a event handler for click
   const ibox = document.querySelector('#infobox');
+  const graph = document.querySelector('.graphic');
   const headshots = document.querySelectorAll('.senator');
   function showInfobox(el) {
+
     ibox.querySelector('.info-name').textContent = el.getAttribute('data-name');
     ibox.querySelector('.info-text').textContent = el.getAttribute('data-text');
     ibox.querySelector('.info-status').textContent = el.getAttribute('data-status');
     ibox.querySelector('.info-state').textContent = el.getAttribute('data-state');
+    ibox.querySelector('.info-termup').textContent = el.getAttribute('data-termup');
     if (el.getAttribute('data-updated')) {
       ibox.querySelector('.info-date').textContent = `Updated: ${el.getAttribute('data-updated')}`;
     } else {
@@ -106,7 +110,6 @@ fetch('data.json').then(function (response) {
         ibox.querySelector('.info-link').removeChild(ibox.querySelector('.info-link').firstChild)
       }
     }
-    ibox.style.opacity = 1;
     let iboxtop = getOffsetTop(el) + 60;
     // if iboxtop plus height of ibox is larger than height of page, flip
     if (iboxtop + ibox.offsetHeight > document.querySelector('.graphic').offsetHeight) {
@@ -121,19 +124,30 @@ fetch('data.json').then(function (response) {
       iboxleft = window.innerWidth - 210;
     }
     ibox.style.left = `${iboxleft}px`;
+    ibox.style.opacity = 1;
+    graph.classList.add('infobox-active');
 
     pymChild.sendHeight();
+  }
+  function hideInfobox (ev) {
+    ibox.style.opacity = 0;
+    graph.classList.remove('infobox-active');
   }
 
   for (let i = 0; i < headshots.length; i += 1) {
     headshots[i].addEventListener('click', function (ev) {
+      ev.stopPropagation();
       showInfobox(ev.target.closest('.senator'));
     });
   }
 
+
   // close infobox 
-  ibox.querySelector('#close').addEventListener('click', function (ev) {
-    ibox.style.opacity = 0;
+  ibox.querySelector('#close').addEventListener('click', hideInfobox);
+  graph.addEventListener('click', function (ev) {
+    if (graph.classList.contains('infobox-active')) {
+      hideInfobox(ev);
+    }
   });
 
   pymChild.sendHeight();
