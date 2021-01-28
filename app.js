@@ -44,13 +44,13 @@ fetch('data.json').then(function (response) {
       unknowncount++;
     }
   }
-  console.log(senators['yea'],senators['nay']);
+  // console.log(senators['yea'],senators['nay']);
   // Print out numbers
   document.querySelector('#yeacount').textContent = yeacount;
   document.querySelector('#leanyeacount').textContent = leanyeacount;
   document.querySelector('#leannaycount').textContent = leannaycount;
   document.querySelector('#naycount').textContent = naycount;
-  document.querySelector('#unknowncount').textContent = unknowncount;
+  // document.querySelector('#unknowncount').textContent = unknowncount;
 
   function buildlist (senators, el) {
     const temp = document.querySelector('#senator-template').innerHTML;
@@ -66,7 +66,7 @@ fetch('data.json').then(function (response) {
   buildlist(senators['leanyea'], '#leanyealist');
   buildlist(senators['leannay'], '#leannaylist');
   buildlist(senators['nay'], '#naylist');
-  buildlist(senators['unknown'], '#unknownlist');
+  // buildlist(senators['unknown'], '#unknownlist');
 
   var getOffsetTop = function (elem) {
     var location = 0;
@@ -87,7 +87,6 @@ fetch('data.json').then(function (response) {
 
     ibox.querySelector('.info-name').textContent = el.getAttribute('data-name');
     ibox.querySelector('.info-text').textContent = el.getAttribute('data-text');
-    ibox.querySelector('.info-status').textContent = el.getAttribute('data-status');
     ibox.querySelector('.info-state').textContent = el.getAttribute('data-state');
     ibox.querySelector('.info-termup').textContent = el.getAttribute('data-termup');
     if (el.getAttribute('data-updated')) {
@@ -118,10 +117,10 @@ fetch('data.json').then(function (response) {
     ibox.style.top = `${iboxtop}px`;
     let iboxleft = el.offsetLeft - 65;
     if (iboxleft < 0) {
-      iboxleft = 0;
+      iboxleft = 1;
     }
     if ( iboxleft + 210  > window.innerWidth ) {
-      iboxleft = window.innerWidth - 210;
+      iboxleft = window.innerWidth - 208;
     }
     ibox.style.left = `${iboxleft}px`;
     ibox.style.opacity = 1;
@@ -140,7 +139,6 @@ fetch('data.json').then(function (response) {
       showInfobox(ev.target.closest('.senator'));
     });
   }
-
 
   // close infobox 
   ibox.querySelector('#close').addEventListener('click', hideInfobox);

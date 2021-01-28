@@ -1,5 +1,5 @@
 :root {
-  --red: #c7494b;
+  --red: #AE2731;
   --muted: #adadad;
   --link: #005dc7;
 }
@@ -84,16 +84,16 @@ h4 {
   margin: 0 auto 5px;
 }
 .known #impeach .people-grid li .headshot {
-  background: #f16913;
+  background: #AE2731;
 }
 .known #watch .people-grid li .headshot {
-  background: #fd8d3c;
+  background: #C96F76;
 }
 .known #likelyacquit .people-grid li .headshot {
-  background: #fdd0a2;
+  background: #E4B7BA;
 }
 .known #acquit .people-grid li .headshot {
-  background: #feedde;
+  background: #F2DBDD;
 }
 #unknown .people-grid li .headshot {
   background: #cccccc;
