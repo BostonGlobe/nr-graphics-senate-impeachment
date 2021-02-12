@@ -22,6 +22,7 @@ function fetchSheet(cb) {
       const str = JSON.stringify(response.data.values);
       fs.writeFile(file, str, (error) => {
         if (error) console.error(error);
+        console.log(`${file} written`);
         cb();
       });
     })
