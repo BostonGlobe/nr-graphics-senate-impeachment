@@ -47,8 +47,8 @@ fetch('data.json').then(function (response) {
   // console.log(senators['yea'],senators['nay']);
   // Print out numbers
   document.querySelector('#yeacount').textContent = yeacount;
-  document.querySelector('#leanyeacount').textContent = leanyeacount;
-  document.querySelector('#leannaycount').textContent = leannaycount;
+  // document.querySelector('#leanyeacount').textContent = leanyeacount;
+  // document.querySelector('#leannaycount').textContent = leannaycount;
   document.querySelector('#naycount').textContent = naycount;
   // document.querySelector('#unknowncount').textContent = unknowncount;
 
@@ -63,8 +63,8 @@ fetch('data.json').then(function (response) {
   }
 
   buildlist(senators['yea'], '#yealist');
-  buildlist(senators['leanyea'], '#leanyealist');
-  buildlist(senators['leannay'], '#leannaylist');
+  // buildlist(senators['leanyea'], '#leanyealist');
+  // buildlist(senators['leannay'], '#leannaylist');
   buildlist(senators['nay'], '#naylist');
   // buildlist(senators['unknown'], '#unknownlist');
 
